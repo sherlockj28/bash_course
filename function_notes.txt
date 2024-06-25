@@ -1,0 +1,7 @@
+bash scripting, functions
+
+functions allows you to define a set of tasks, and then call all of them at once.
+
+editing the update file in /usr/local/bin/update #I copied it to my current working directory so i can roll back changes if necessary
+
+a function is a tool that you can use anytime you have repeating code.

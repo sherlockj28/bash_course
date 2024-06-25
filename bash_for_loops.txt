@@ -1,0 +1,7 @@
+bash: for loops
+
+for loop performex a task repeatedly for every item in a list/dict/set, if statement performs a task once if the condition evaluates as true,  while a while loop executes until the stop condition is reached.
+
+A for lop is a concept of executing a command or set of commands against each item in a set.
+
+

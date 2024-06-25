@@ -1,0 +1,20 @@
+Where to store scripts
+
+/usr/local/bin/<file name>
+
+scripts dropped into that directory on any linux machine, can be run and it will work.
+
+The path $PATH variable contains all of the directories inside of it that the shell looks inside of to find the binarise or scripts to run.  It contains a list of paths separated by colons, and /usr/local/bin is one of the paths it looks in (see output below)
+
+echo $PATH                                                ✔
+/home/jsherlock/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+
+entering 'env' we get a list of environment variables that we have in our session, which includes the PATH variable.  the env command prints out all the environment variables (PATH is created for us), specifically /usr/local/bin, which means tht the shell is automatically going to look for a command called 'update' which is where the script 'update' was put in.
+
+IF /usr/local/bin is NOT in your path, or any other directory to the path, it can be done by:
+
+~$ export PATH=/usr/local/bin:$PATH
+
+this means that the new version of PATH is going to include the new path from above, and then all of the other directories that were already in the PATH variable.
+
+

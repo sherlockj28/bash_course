@@ -1,0 +1,9 @@
+bash exit codes
+
+run a command
+second command: echo $?
+display is the exit code.
+
+working exit code = 0
+failed exit code = 2 or any other number except 0
+

@@ -1,0 +1,51 @@
+scheduling jobs part 1 and 2
+
+Lesson one: at command (not usually installed by default!)  It is a very small utility.
+The script is schedule.sh
+
+The at command is not specific to scripting, it is very useful when used with scripting.
+
+~$at 13:29 -f ./schedule.sh                                 ✔
+warning: commands will be executed using /bin/sh
+job 2 at Fri Jun 21 13:29:00 2024
+
+(you might need to enable atd, ~$ sudo systemctl enable atd && sudo systemctl start atd)
+
+~$ atq
+
+that is the queue of at jobs.  job id is important.  you can delete them by:
+
+~$ atrm <job id>
+
+how to set future at job:
+
+~$ at 18:00 07252024 -f ./script
+
+# at 6pm, mmddyyyy -f (type) ./script
+
+Lesson two: cron jobs, and using full path to commands.
+
+using schedule2.sh for example
+this script is using fully qualified domains for the commands, which is recommended:
+
+1. security - another machine may have different aliases for common commands.
+
+2. path variable - which can change between distros.  and cron needs it.
+
+when cron runs a job, it probably has a different path variable.
+
+to check the path of the command is (and whether or not it is installed), run 'which + <command>'
+
+How to edit the cron tab:
+~$ cronab -e #this edits the crontab file or the user
+
+copy script to location
+
+~$ sudo crontab -u <user> -e
+edit someone elses cron job
+
+
+
+
+
+

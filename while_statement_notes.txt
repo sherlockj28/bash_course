@@ -1,0 +1,31 @@
+bash while statements
+
+keeps a script running as long as the while statement is true, like keeping a game running for example.  it continues to run until a stop condition is met.  It loops through the code.
+
+-------------------------------------------------
+#!/bin/bash
+
+myvar=1
+
+while [ $myvar -le 10 ]
+do
+    echo $myvar
+    myvar=$(( $myvar +1 ))
+    sleep 0.5
+done
+-------------------------------------------------
+
+   ~/bash_course  ./while_loop_example.sh                                   ✔
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+    ~/bash_course 
+ ------------------------------------------------
+

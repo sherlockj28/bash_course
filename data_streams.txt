@@ -1,0 +1,75 @@
+data streams in bash
+
+standard input, standard output, and standard error
+
+data streams allow us to control where normal output goes as well as where errors are printed.  It even allows us to accept input from users as well.  This is not only important for scripting, but arguably moreso for linux wide.
+
+What data streams are:
+
+There are three types.
+The first is standard output.  Whenever we execute a command (like ls), the result of that command are printed out to the screen *is* standard output.  When we execute a command and see the results, that is standard output.  Anything printed to the screen is standard output, that doesn't constitute an error.  !! A failed command printing output is standard error !!
+
+So if you run a command and then 'echo $?' if the return code is one or a 2, it is std error.
+
+third type of data stream is standard input, like something we want a user to enter in the shell.
+
+~$echo "Please enter your name:"
+read myname
+echo "Your name is: $myname"
+
+
+
+
+when you run the find command, and youget some results printed, and some "permission denied, nee/etc/passwd-
+/etc/resolv.conf
+/etc/timeshift-autosnap.conf
+find: ‘/etc/credstore’: Permission denied
+find: ‘/etc/polkit-1/rules.d’: Permission denied
+/etc/servicesd root access" also printed, that is an example of standard output and standard error!like the following example...
+
+~$ find /etc -type f
+...
+/etc/passwd-
+/etc/resolv.conf
+/etc/timeshift-autosnap.conf
+find: ‘/etc/credstore’: Permission denied
+find: ‘/etc/polkit-1/rules.d’: Permission denied
+/etc/services
+
+std error = #2
+
+anything that goes to /dev/null disappears forever, so:
+
+~$ find /etc -type f 2> /dev/null
+
+this is the same as running it without the '2> /dev/null'
+the errors are still "there" but we have redirected the standard error output to /dev/null, which is essentially a black hole where things to to disappear/unalive.  So in the last commmand example, we only see the standard output, not the standard error (#2).  It is not that the errors do not exist, they do, or "did", they just weren't printed to the screen anymore.  The standard errors have been 'hidden'.  You would do this if you didn't particularly care about the error messages.  Use case: differentiating standard error from standard output.
+
+#1 = standard output, #2 = standard error,
+
+omitting a number with a redirection '>' implies using a '1'
+
+standard output (1) is everything printed to screen that is NOT an error.
+standard error (2) is everything printed to screen that IS an error.
+
+~$ find /etc -type f &> file.txt
+this will send the output of the find command, the standard output and standard error, to the file 'file.txt', however it will overwrite any other file that is called file.txt that is currently in the same directory, adding two >> for the output instead of one > will append it to the existing file.  THat command will not print anything to the screen if it works, as the standard output and error are being sent ot the file.
+
+~$ find /etc -type f >1file_results.txt 2>find_errors.txt
+
+This will run, not print anything to screen, but create or overwrite two files, one for standard output, and the other for standard error in the current working directory.
+
+as a general rule, when scripting, you want to avoid any prompts at all, as there might noe be anyone there to use the keyboard, so any package upgrade should be followed by a -y
+
+
+
+
+
+
+
+
+
+
+
+How they are used:
+

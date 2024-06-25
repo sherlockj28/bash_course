@@ -1,0 +1,10 @@
+case statements
+
+you can use case statements to create a menu, and have a user check the menu.  See 'case_statements.sh' for the example.
+
+
+case statement allows us to do something dependingon what the variable is.  in the example, it is the distro variable, containing whatever the user types.
+
+case checks and see if distro is equal to 1, or the user pressed 1 and hit enter.  It will compare all options.  The wildcard is a catchall, in the event the user enters something that is not a match.
+
+every single case statement ends in two semi-colons, except the last.  WIth multiple commands you can put the ending semmi-colons on a different line, in case if  you needed to enter more than one command.
