@@ -1,1 +1,18 @@
 bash arguments
+
+the difference between an argument and a variable is an argument is declaired when you run the script, rather than within the script itself.  In the arggument_script.sh, I entered the argument "Linux" which actually replaced the $1 with my input.  You can have multiple arguments.
+
+~$./argument_script.sh Linux Pizza Cappybara Coffee
+You entered the argument: Linux, Pizza, Cappybara, and Coffee.
+
+Note that the arguments had to be entered in order with running the script.
+
+If you wanted to create a backup script, you would want to give it an argument that is a path to the directory or file you want to backup. That script would behave differently depending on the argument or in this example, whatever path you would want to back up.
+
+next example that uses the $5 script:
+
+~$./argument_script.sh /etc
+You have 22 objects in the  directory.
+
+
+
