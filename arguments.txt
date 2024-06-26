@@ -14,5 +14,8 @@ next example that uses the $5 script:
 ~$./argument_script.sh /etc
 You have 22 objects in the  directory.
 
+added an if statement to check and see if the number of arguments is not less than 1.  The $# is a variable that represents that the number of arguments the user has passed to a script.
+it checks to see that the argument count is not less than 1.
+
 
 
